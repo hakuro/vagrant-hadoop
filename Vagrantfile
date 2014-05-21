@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
-=begin
+
   config.vm.provision :ansible do |ansible|
     ansible.groups = {
       "hadoop_name" => ["hadoop_name"],
@@ -18,7 +18,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.playbook = "provisioning/playbook.yml"
     ansible.limit = 'all'
   end
-=end
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.define :hadoop_name do |hadoop_name|
@@ -31,6 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
   end
 
+=begin
   config.vm.define :hadoop_node1 do |hadoop_node1|
       hadoop_node1.vm.box = "centos65"
       hadoop_node1.vm.network :private_network, ip:"192.168.50.11"
@@ -50,6 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           vb.name = "CentOS-6.5-Hadoop-Node2"
       end
   end
+=end
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
